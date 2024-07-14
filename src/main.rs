@@ -1,4 +1,7 @@
-use std::{borrow::Borrow, rc::Rc};
+use std::{
+    borrow::{Borrow, BorrowMut},
+    rc::Rc,
+};
 
 #[derive(Debug)]
 struct Node {
@@ -18,6 +21,8 @@ impl LinkedList {
             tail: Rc::new(Option::None),
         }
     }
+
+    fn get(&self, index: i32) {}
 
     fn add_at_head(&mut self, val: i32) {
         match *self.head {
@@ -41,5 +46,8 @@ fn main() {
     let mut list: LinkedList = LinkedList::new();
     list.add_at_head(13);
     list.add_at_head(14);
+    list.add_at_head(15);
+    list.add_at_head(16);
     println!("List's head -> {:?}", list.head);
+    list.get(12);
 }
